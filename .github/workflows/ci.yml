@@ -15,8 +15,8 @@ jobs:
             dotnet-version: 3.1.x
 
         # Run tests
-        - name: Test
-          run: dotnet test
+        #- name: Test
+        #  run: dotnet test
 
         # Generate the website
         - name: Publish
