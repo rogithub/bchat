@@ -56,8 +56,8 @@ namespace Web.Pages
                 return;
             }
 
-            Message.Message = string.Empty;
             await hubConnection.SendAsync("SendMessage", Message.Name, Message.Message);
+            Message.Message = string.Empty;
         }
 
         public void Dispose()
