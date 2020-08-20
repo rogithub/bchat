@@ -1,26 +1,19 @@
 ﻿@page "/"
+
 @inject IJSRuntime js
+@inject NavigationManager NavigationManager
 
-<EditForm  Model="@Message" OnSubmit="Send">
-    <div class="form-group">
-        <label>
-            User:
-            <input @bind="@Message.Name" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>
-            Message:
-            <input @bind="@Message.Message" id="txtMsg" size="50" />
-        </label>
-    </div>
-    <button type="submit" disabled="@(!IsConnected)">Send</button>
-</EditForm>
-<hr>
+<div class="container">
+    <h1>Registro</h1>
+    <EditForm  Model="@Model" OnSubmit="Send" class="form">
+        <div class="form-group">
+            <label>User:</label>
+            <input @bind="@Model.Name" class="form-control" id="txtUserName" />
+        </div>
 
-<ul id="messagesList">
-    @foreach (var message in Messages)
-    {
-        <li>@message</li>
-    }
-</ul>
+        <button class="btn btn-success float-right" type="submit">Chat</button>
+        
+    </EditForm>
+</div>
+
+

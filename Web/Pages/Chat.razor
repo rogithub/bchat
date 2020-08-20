@@ -1,0 +1,21 @@
+@page "/chat/{user}"
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+
+<div id="messagesList">
+     @foreach (var message in Messages)
+    {
+        <p>@message</p>
+    }
+</div>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+
+    <EditForm  Model="@Message" OnSubmit="Send" class="form-inline">    
+        <div class="form-group">
+            <input type="text" @bind="@Message.Message" id="txtMsg" class="form-control">
+            <button type="submit" class="btn btn-success ml-3" disabled="@(!IsConnected)">Send</button>
+        </div>            
+    </EditForm>
+</nav>
+
