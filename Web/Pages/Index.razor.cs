@@ -48,13 +48,15 @@ namespace Web.Pages
 
         private async Task Send()
         {
-            if (string.IsNullOrWhiteSpace(Message.Name) ||
-                string.IsNullOrWhiteSpace(Message.Message))
-                return;
-
-            Message.Message = string.Empty;
             await Focus("txtMsg");
 
+            if (string.IsNullOrWhiteSpace(Message.Name) ||
+                string.IsNullOrWhiteSpace(Message.Message))
+            {
+                return;
+            }
+
+            Message.Message = string.Empty;
             await hubConnection.SendAsync("SendMessage", Message.Name, Message.Message);
         }
 
