@@ -20,11 +20,6 @@ namespace Web.Pages
     {
         public NombreModel Model { get; set; } = new NombreModel();
 
-        protected override async Task OnInitializedAsync()
-        {
-            await Focus("txtUserName");
-        }
-
         private void Send()
         {
             if (string.IsNullOrWhiteSpace(Model.Name))
@@ -33,12 +28,6 @@ namespace Web.Pages
             }
 
             NavigationManager.NavigateTo($"/chat/{HttpUtility.UrlEncode(Model.Name)}");
-        }
-
-
-        public async Task Focus(string elementId)
-        {
-            await js.InvokeVoidAsync("helpers.focus", elementId);
         }
 
     }
