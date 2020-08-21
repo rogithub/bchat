@@ -1,4 +1,4 @@
-@page "/chat/{user}"
+@page "/chat"
 @inject IJSRuntime js
 @inject NavigationManager NavigationManager
 
@@ -25,10 +25,10 @@
     </nav>
 </header>
 
-<div id="mesagges">
-    @for (int i = Messages.Count; i > 0; i--)
+<div id="mesagges">    
+    @foreach (var msg in Messages)
     {
-        <p>@Messages[i - 1]</p>
+        <p>@msg</p>
     }
 </div>
 
