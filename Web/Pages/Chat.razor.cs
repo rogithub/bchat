@@ -49,7 +49,7 @@ namespace Web.Pages
         private async Task Send()
         {
             await Focus("txtMsg");
-
+            
             if (string.IsNullOrWhiteSpace(User))
             {
                 NavigationManager.NavigateTo($"/");

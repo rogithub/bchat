@@ -1,5 +1,9 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+body {
+    height: 100%;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -17,4 +21,17 @@
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+}
+
+.frmMsg {
+    width: 100%;
+}
+
+div#mesagges {
+    margin-top: 55px;
+    background-color: blanchedalmond;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 55px;    
 }
