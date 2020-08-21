@@ -27,7 +27,7 @@ namespace Web.Pages
                 return;
             }
 
-            NavigationManager.NavigateTo($"/chat/{HttpUtility.UrlEncode(Model.Name)}");
+            NavigationManager.NavigateTo($"/chat?user={HttpUtility.UrlEncode(Model.Name)}");
         }
 
     }

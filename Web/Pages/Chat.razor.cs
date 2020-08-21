@@ -18,8 +18,6 @@ namespace Web.Pages
 
     public partial class Chat
     {
-        [Parameter]
-        public string User { get; set; }
         public ChatModel Message { get; set; } = new ChatModel();
         string Url { get; set; } = "https://dejatupuntito.com/communicator";
         private HubConnection hubConnection;
@@ -49,8 +47,14 @@ namespace Web.Pages
         private async Task Send()
         {
             await Focus("txtMsg");
+                 
+            if(!NavigationManager.TryGetQueryString("user", out string user))
+            {
+                NavigationManager.NavigateTo("/");
+            }
+
             
-            if (string.IsNullOrWhiteSpace(User))
+            if (string.IsNullOrWhiteSpace(user))
             {
                 NavigationManager.NavigateTo($"/");
                 return;
@@ -65,7 +69,7 @@ namespace Web.Pages
                 return;
             }
 
-            await hubConnection.SendAsync("SendMessage", User, Message.Message);
+            await hubConnection.SendAsync("SendMessage", user, Message.Message);
             Message.Message = string.Empty;
         }
 
