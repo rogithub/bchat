@@ -3,7 +3,7 @@
 @inject NavigationManager NavigationManager
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">
             bChat
         </a>
@@ -25,14 +25,22 @@
     </nav>
 </header>
 
-<div id="mesagges">    
+<div class="container" id="mesagges">
+    
     @foreach (var msg in Messages)
     {
-        <p>@msg</p>
+        <div class="row">
+            <div class="col">
+                <p class="alert alert-info">
+                    @msg
+                </p>                
+            </div>
+        </div>
     }
+    
 </div>
 
-<nav class="navbar fixed-bottom navbar-light bg-light">
+<nav class="navbar fixed-bottom navbar-light bg-dark">
     <EditForm  Model="@Message" OnSubmit="Send" class="frmMsg">    
         <input type="text" @bind="@Message.Message" id="txtMsg" class="form-control">            
     </EditForm>

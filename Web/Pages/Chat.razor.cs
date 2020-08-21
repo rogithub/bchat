@@ -15,7 +15,6 @@ namespace Web.Pages
         public string Message { get; set; }
     }
 
-
     public partial class Chat
     {
         public ChatModel Message { get; set; } = new ChatModel();
