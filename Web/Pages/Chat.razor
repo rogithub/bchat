@@ -1,0 +1,41 @@
+@page "/chat/{user}"
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <a class="navbar-brand" href="#">
+            bChat
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">                
+                <li class="nav-item">
+                    <a class="nav-link" href="/usuarios">Usuarios</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Salir</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+<div id="mesagges">
+    @for (int i = Messages.Count; i > 0; i--)
+    {
+        <p>@Messages[i - 1]</p>
+    }
+</div>
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+    <EditForm  Model="@Message" OnSubmit="Send" class="frmMsg">    
+        <input type="text" @bind="@Message.Message" id="txtMsg" class="form-control">            
+    </EditForm>
+</nav>
+
+
